@@ -1,12 +1,16 @@
 import exceptions.BracketException;
 import exceptions.ExpressionException;
 
+import java.util.Stack;
+
 public class ExpressionParser implements SymbolChecker {
     private String polishNotation;
     private String expression;
+    private Stack stack;
 
     public ExpressionParser(String expression){
         this.expression = expression;
+        stack = new Stack();
     }
 
     public String getPolishNotation() throws ExpressionException, BracketException {
@@ -53,16 +57,16 @@ public class ExpressionParser implements SymbolChecker {
                 }
 
                 if (expression.charAt(i) == '+' || expression.charAt(i) == '-' || expression.charAt(i) == '*' || expression.charAt(i) == '/') {
-                    while (!Calculator.getStack().empty() && priority(expression.charAt(i)) <= priority((char) Calculator.getStack().peek()))
-                        polishNotation += Calculator.getStack().pop() + " ";
-                    Calculator.getStack().push(expression.charAt(i));
+                    while (!stack.empty() && priority(expression.charAt(i)) <= priority((char) stack.peek()))
+                        polishNotation += stack.pop() + " ";
+                    stack.push(expression.charAt(i));
                     continue;
                 }
             }
 
             if (isBracket(expression.charAt(i))) {                                                  //Обработка скобок
                 if (expression.charAt(i) == '(') {
-                    Calculator.getStack().push(expression.charAt(i));
+                    stack.push(expression.charAt(i));
                     continue;
                 }
 
@@ -73,20 +77,20 @@ public class ExpressionParser implements SymbolChecker {
                     if (i + 1 < expression.length() && !isOperation(expression.charAt(i + 1)))
                         throw new ExpressionException();
 
-                    while (!Calculator.getStack().empty() && !Calculator.getStack().peek().equals('('))
-                        polishNotation += Calculator.getStack().pop() + " ";
+                    while (!stack.empty() && !stack.peek().equals('('))
+                        polishNotation += stack.pop() + " ";
 
-                    if (Calculator.getStack().empty())
+                    if (stack.empty())
                         throw new BracketException();
-                    Calculator.getStack().pop();
+                    stack.pop();
                 }
             }
         }
 
-        while (!Calculator.getStack().empty()) {
-            if (Calculator.getStack().peek().equals('('))
+        while (!stack.empty()) {
+            if (stack.peek().equals('('))
                 throw new BracketException();
-            polishNotation += Calculator.getStack().pop();
+            polishNotation += stack.pop();
         }
 
     }

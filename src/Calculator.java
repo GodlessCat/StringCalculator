@@ -4,7 +4,7 @@ import exceptions.ExpressionException;
 import java.util.Stack;
 
 public class Calculator implements SymbolChecker {
-    private static Stack stack;
+    private Stack stack;
     private static Calculator instance;
     private ExpressionParser parser;
     private String polishNotation;
@@ -15,10 +15,6 @@ public class Calculator implements SymbolChecker {
         stack = new Stack();
         expression = "";
         result = 0;
-    }
-
-    public static Stack getStack() {
-        return stack;
     }
 
     public static Calculator getInstance() {

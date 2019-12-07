@@ -86,7 +86,7 @@
       <workItem from="1553593767408" duration="186000" />
       <workItem from="1556536708326" duration="1573000" />
       <workItem from="1556542718376" duration="3321000" />
-      <workItem from="1575721483045" duration="22704000" />
+      <workItem from="1575721483045" duration="23127000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1552865921802</created>
@@ -150,19 +150,5 @@
     <MESSAGE value="Final build" />
     <MESSAGE value="Final final build" />
     <option name="LAST_COMMIT_MESSAGE" value="Final final build" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/ExpressionParser.java</url>
-          <line>16</line>
-          <properties class="ExpressionParser" method="parseExpression">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

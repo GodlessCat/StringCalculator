@@ -57,7 +57,6 @@ public class UserInterface extends JFrame {
                 else
                     calculator.setExpression(expression.getText());
                 try {
-                    System.out.println(calculator.getResult());
                     resultField.setText(String.valueOf(calculator.getResult()));
                 }
                 catch (ExpressionException ex){

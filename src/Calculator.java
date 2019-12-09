@@ -11,6 +11,7 @@ public class Calculator implements SymbolChecker {
     private String expression;  //Введённое выражение
     private double result;  //Результат вычисления
 
+
     private Calculator() {
         stack = new Stack();
         expression = "";
@@ -66,17 +67,17 @@ public class Calculator implements SymbolChecker {
         for (int i = 0; i < polishNotation.length(); i++) {
             temp = "";
 
-            if (isOperation(polishNotation.charAt(i))) {
-                stack.push(String.valueOf(calculation(polishNotation.charAt(i))));
-                continue;
-            }
-
-            if (Character.isDigit(polishNotation.charAt(i)) || (i + 1 < polishNotation.length() && polishNotation.charAt(i) == '-')) {
+            if (Character.isDigit(polishNotation.charAt(i)) || (i + 1 < polishNotation.length() && polishNotation.charAt(i) == '-' && Character.isDigit(polishNotation.charAt(i+1)))) {
                 while (polishNotation.charAt(i) != ' ') {
                     temp += polishNotation.charAt(i);
                     i++;
                 }
                 stack.push(temp);
+                continue;
+            }
+            
+            if (isOperation(polishNotation.charAt(i))) {
+                stack.push(String.valueOf(calculation(polishNotation.charAt(i))));
             }
         }
 

@@ -10,6 +10,7 @@ public class Calculator implements SymbolChecker {
     private String polishNotation;
     private String expression;  //Введённое выражение
     private double result;  //Результат вычисления
+    private String temp;
 
 
     private Calculator() {
@@ -63,7 +64,6 @@ public class Calculator implements SymbolChecker {
         parser = new ExpressionParser(expression);
         polishNotation = parser.getPolishNotation();
 
-        String temp;
         for (int i = 0; i < polishNotation.length(); i++) {
             temp = "";
 
@@ -75,7 +75,7 @@ public class Calculator implements SymbolChecker {
                 stack.push(temp);
                 continue;
             }
-            
+
             if (isOperation(polishNotation.charAt(i))) {
                 stack.push(String.valueOf(calculation(polishNotation.charAt(i))));
             }

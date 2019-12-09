@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="853de19e-b61d-44d3-bf62-9c1825ee0dcf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Calculator.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -92,7 +91,7 @@
       <workItem from="1575721483045" duration="23721000" />
       <workItem from="1575758540754" duration="1000000" />
       <workItem from="1575846084307" duration="602000" />
-      <workItem from="1575876506239" duration="699000" />
+      <workItem from="1575876506239" duration="1643000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1552865921802</created>
